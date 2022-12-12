@@ -2985,7 +2985,7 @@ CommitTransaction(void)
 	 * worry about aborts as we release session level locks automatically during
 	 * an abort as opposed to a commit.
 	 */
-	if(Gp_role == GP_ROLE_DISPATCH)
+	if(Gp_role == GP_ROLE_DISPATCH || Gp_role == GP_ROLE_UTILITY)
 		MoveDbSessionLockRelease();
 
 	AtCommit_TablespaceStorage();
